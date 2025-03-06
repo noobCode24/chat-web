@@ -1,5 +1,7 @@
 import React from 'react'
 import { ChatList, Inbox, Sidebar } from '../section/Chat'
+import GifModal from '../components/GifModal'
+// import VoiceRecorder from '../components/VoiceRecorder'
 
 export default function Messages() {
   return (
@@ -12,6 +14,9 @@ export default function Messages() {
         {/* INBOX */}
         <Inbox />
       </div>
+
+      <GifModal />
+      {/* <VoiceRecorder /> */}
     </div>
   )
 }
