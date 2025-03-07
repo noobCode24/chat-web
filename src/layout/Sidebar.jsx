@@ -1,42 +1,34 @@
-import { Chat, ChatCircle, DotsThreeCircle, Shapes, SignOut, UserCircle, Users } from '@phosphor-icons/react'
+import { Chat, Shapes, SignOut, UserCircle } from '@phosphor-icons/react'
 import React, { useState } from 'react'
-import DarkMode from '../../components/DarkMode'
+import DarkMode from '../components/DarkMode'
+import { useNavigate } from 'react-router'
 
 const NAVIGATION = [
   {
     key: 0,
     title: 'Dms',
-    icon: <Chat size={24} />
+    icon: <Chat size={24} />,
+    path: "/dashboard"
   },
   {
     key: 1,
-    title: 'Groups',
-    icon: <Users size={24} />
-  },
-  {
-    key: 2,
     title: 'Profile',
-    icon: <UserCircle size={24} />
-  },
-  {
-    key: 3,
-    title: 'More',
-    icon: <DotsThreeCircle size={24} />
+    icon: <UserCircle size={24} />,
+    path: "/dashboard/profile"
   },
 ]
 
 export default function Sidebar() {
+  const navigate = useNavigate()
+
   const [selected, setSelected] = useState(0)
 
   const handleClick = (key) => {
+    navigate(NAVIGATION[key].path)
     setSelected(key)
   }
   return (
     <div className='flex flex-col border-r border-stroke p-2 dark:border-strokedark '>
-      {/* <div className='mx-auto border rounded-md border-stroke p-2 dark:border-strokedark'>
-        <ChatCircle size={24} />
-      </div> */}
-
       <div className='flex flex-col items-center space-y-5'>
         <div className='space-y-2 flex flex-col text-center'>
           <div className='mx-auto border rounded-md border-stroke p-2 dark:border-strokedark'>
@@ -63,9 +55,9 @@ export default function Sidebar() {
         <div className='flex flex-row items-center justify-center'></div>
         <DarkMode />
 
-        <div className='flex flex-row items-center justify-center border rounded-md border-stroke p-2 dark:border-strokedark hover:bg-stone-100 hover:cursor-pointer'>
+        <button onClick={() => { navigate('/') }} className='w-full flex flex-row items-center justify-center border rounded-md border-stroke p-2 dark:border-strokedark hover:bg-stone-100 hover:cursor-pointer'>
           <SignOut size={24} />
-        </div>
+        </button>
       </div>
     </div>
   )
