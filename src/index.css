@@ -27,3 +27,38 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+.ticontainer .tidot {
+  background-color: #90949c;
+}
+
+@keyframes mercuryTypingAnimation {
+  0% {
+    -webkit-transform: translateY(0px);
+  }
+  28% {
+    -webkit-transform: translateY(-5px);
+  }
+  44% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.tidot {
+  display: inline-block;
+  border-radius: 2px;
+  height: 4px;
+  width: 4px;
+  margin-right: 2px;
+  animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+}
+
+.tidot:nth-child(1) {
+  animation-delay: 200ms;
+}
+.tidot:nth-child(2) {
+  animation-delay: 300mx;
+}
+.tidot:nth-child(3) {
+  animation-delay: 400mx;
+}

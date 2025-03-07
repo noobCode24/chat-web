@@ -1,9 +1,11 @@
 import React from 'react'
 import Logo from '../../components/Logo'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import SignupIllustration from '../../assets/images/chat-signup.svg'
 import { EnvelopeSimple, Lock, User } from '@phosphor-icons/react'
 export default function Signup() {
+  const navigate = useNavigate()
+
   return (
     <div className='border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark h-screen'>
       <div className='flex flex-wrap items-center h-full'>
@@ -83,10 +85,10 @@ export default function Signup() {
 
 
               <div className='mb-4'>
-                <input type='submit' value='Create account' className='w-full cursor-pointer border border-primary bg-primary p-4 rounded-lg text-white transition hover:bg-opacity-90' />
+                <input onClick={() => { navigate('/auth/verify') }} type='submit' value='Create account' className='w-full cursor-pointer border border-primary bg-primary p-4 rounded-lg text-white transition hover:bg-opacity-90' />
               </div>
 
-              <button className='flex w-full items-center justify-center gap-3.5 border border-stroke bg-gray p-4 rounded-lg hover:bg-opacity-50 dark:border-strokedark dark: dark:bg-meta-4 dark:hover:bg-opacity-20'>
+              <button onClick={() => { navigate('/dashboard') }} className='flex w-full items-center justify-center gap-3.5 border border-stroke bg-gray p-4 rounded-lg hover:bg-opacity-50 dark:border-strokedark dark: dark:bg-meta-4 dark:hover:bg-opacity-20'>
                 <span>
                   <svg
                     width="20"
@@ -126,7 +128,7 @@ export default function Signup() {
               <div className='mt-4 text-center'>
                 <p>
                   Already have an account? {" "}
-                  <Link to="/login" className='text-primary'>
+                  <Link to="/auth/login" className='text-primary'>
                     Sign in
                   </Link>
                 </p>

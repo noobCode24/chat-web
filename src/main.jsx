@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router'
-
+import "dropzone/dist/dropzone.css"
 import { Provider as ReduxProvider } from 'react-redux'
 import { store } from './redux/store.js'
 
